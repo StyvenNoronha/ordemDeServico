@@ -3,8 +3,9 @@ import { BancoDeDados } from "../bancoDeDados/BancoDeDados.js";
 
 const bancoDeDados = new BancoDeDados()
 export function rotaIndermediario(requisicao, resposta){
+   
  const rota =  rotas.find((rota)=>{
-    return rota.method === requisicao.method && rota.path === requisicao.url
+    return rota.method === requisicao.method && rota.caminho.test(requisicao.url)
  })
  if(rota){
     return rota.controller({requisicao, resposta, bancoDeDados})
