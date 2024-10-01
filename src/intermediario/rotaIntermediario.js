@@ -9,7 +9,8 @@ export function rotaIndermediario(requisicao, resposta){
  })
  if(rota){
    const parametroRota = requisicao.url.match(rota.caminho)
-   const { query } = parametroRota.groups
+   const { query, ...parametro } = parametroRota.groups
+   requisicao.parametro = parametro
    requisicao.query = query ? extrairQuery(query) : {}
 
 
