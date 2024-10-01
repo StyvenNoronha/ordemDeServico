@@ -7,7 +7,6 @@ export async function manipuladorJson(requisicao, resposta) {
   try {
     requisicao.body = JSON.parse(Buffer.concat(acumulador).toString());
   } catch (error) {
-    console.error(error);
     resposta.body = null;
   }
 

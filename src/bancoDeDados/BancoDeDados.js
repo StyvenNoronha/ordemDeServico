@@ -22,4 +22,10 @@ export class BancoDeDados {
     }
     this.#persistir();
   }
+
+  selecionar(tabela){
+    let dados = this.#BancoDeDados[tabela] ?? [];
+    return dados;
+  }
+
 }
