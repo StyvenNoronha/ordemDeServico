@@ -4,7 +4,7 @@ export function rotaIndermediario(requisicao, resposta){
     return rota.method === requisicao.method && rota.path === requisicao.url
  })
  if(rota){
-    return rota.controller(requisicao, resposta)
+    return rota.controller({requisicao, resposta})
  }
  return resposta.writeHead(404).end()
 }
