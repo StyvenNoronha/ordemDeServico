@@ -23,17 +23,26 @@ export class BancoDeDados {
     this.#persistir();
   }
 
-  selecionar(tabela,filtros){
+  selecionar(tabela, filtros) {
     let dados = this.#BancoDeDados[tabela] ?? [];
-    if(filtros){
-      dados = dados.filter((linha)=>{
-        return Object.entries(filtros).some(([key,value]) =>{
-          return linha[key].toLowerCase().includes(value.toLowerCase())
-        })
-      })
-      
+    if (filtros) {
+      dados = dados.filter((linha) => {
+        return Object.entries(filtros).some(([key, value]) => {
+          return linha[key].toLowerCase().includes(value.toLowerCase());
+        });
+      });
     }
     return dados;
   }
+  atualizar(tabela, id, dados) {
+    const indexLinha = this.#BancoDeDados[tabela].findIndex((linha) => linha.id === id);
+    if (indexLinha > -1) {
+      this.#BancoDeDados[tabela][indexLinha] = {
+        ...this.#BancoDeDados[tabela][indexLinha],
+        ...dados,
+      };
+    }
+    this.#persistir();
+}
 
 }
