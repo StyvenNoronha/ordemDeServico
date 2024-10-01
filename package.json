@@ -1,0 +1,12 @@
+{
+  "name": "ordemdeservico",
+  "version": "1.0.0",
+  "main": "src/servidor.js",
+  "type":"module",
+  "scripts": {
+    "dev": "node --watch src/servidor.js"
+  },
+  "author": "Styven Cesar Noronha",
+  "license": "ISC",
+  "description": "API de gerenciamento de ordens de serviço"
+}
