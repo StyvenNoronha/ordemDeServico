@@ -23,8 +23,16 @@ export class BancoDeDados {
     this.#persistir();
   }
 
-  selecionar(tabela){
+  selecionar(tabela,filtros){
     let dados = this.#BancoDeDados[tabela] ?? [];
+    if(filtros){
+      dados = dados.filter((linha)=>{
+        return Object.entries(filtros).some(([key,value]) =>{
+          return linha[key].toLowerCase().includes(value.toLowerCase())
+        })
+      })
+      
+    }
     return dados;
   }
 
