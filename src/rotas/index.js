@@ -1,4 +1,4 @@
-import { ordem } from "./ordem";
+import { ordem } from "./ordem.js";
 
 export const rotas = [
     ...ordem
