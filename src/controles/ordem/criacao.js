@@ -1,6 +1,6 @@
 import{randomUUID} from"node:crypto"
 
-export function criacao({ requisicao, resposta }) {
+export function criacao({ requisicao, resposta, bancoDeDados }) {
 
   const { equipamento, descricao, nome_usuario } = requisicao.body;
 
@@ -13,6 +13,7 @@ export function criacao({ requisicao, resposta }) {
     data_criacao: new Date(),
     data_atualizacao: new Date(),
   };
+  bancoDeDados.inserir("ordem", ordem);
 
-  return resposta.end(JSON.stringify(ordem));
+  return resposta.writeHead(201).end(JSON.stringify(ordem));
 }

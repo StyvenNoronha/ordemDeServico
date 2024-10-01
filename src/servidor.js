@@ -1,5 +1,5 @@
 import http from 'node:http';
-import {manipuladorJson} from './intermediario/manipuladorJson.js'
+import {manipuladorJson} from './intermediario/ManipuladorJson.js'
 import { rotaIndermediario } from './intermediario/rotaIntermediario.js';
 
 async function escutar(requisicao, resposta){
