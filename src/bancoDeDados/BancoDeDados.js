@@ -35,7 +35,9 @@ export class BancoDeDados {
     return dados;
   }
   atualizar(tabela, id, dados) {
-    const indexLinha = this.#BancoDeDados[tabela].findIndex((linha) => linha.id === id);
+    const indexLinha = this.#BancoDeDados[tabela].findIndex(
+      (linha) => linha.id === id
+    );
     if (indexLinha > -1) {
       this.#BancoDeDados[tabela][indexLinha] = {
         ...this.#BancoDeDados[tabela][indexLinha],
@@ -43,6 +45,14 @@ export class BancoDeDados {
       };
     }
     this.#persistir();
-}
-
+  }
+  deletar(tabela, id) {
+    const indexLinha = this.#BancoDeDados[tabela].findIndex(
+      (linha) => linha.id === id
+    );
+    if (indexLinha > -1) {
+      this.#BancoDeDados[tabela].splice(indexLinha, 1);
+      this.#persistir();
+    }
+  } 
 }

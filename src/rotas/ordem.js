@@ -2,6 +2,7 @@ import { criacao } from "../controles/ordem/criacao.js";
 import { index } from "../controles/ordem/index.js";
 import { atualizar } from "../controles/ordem/atualizar.js";
 import { atualizarStatus } from "../controles/ordem/atualizarStatus.js";
+import { remover } from "../controles/ordem/remover.js";
 export const ordem = [
   {
     method: "POST",
@@ -22,5 +23,10 @@ export const ordem = [
     method: "PATCH",
     path: "/ordem/:id/fechado",
     controller: atualizarStatus
+  },
+  {
+    method: "DELETE",
+    path: "/ordem/:id",
+    controller: remover
   }
 ];
